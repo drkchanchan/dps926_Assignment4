@@ -1,0 +1,7 @@
+{
+  "name": "dps_assignment4",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
