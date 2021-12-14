@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title size="large">
+      Favourite Games Page
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-list>
+      <ion-card *ngFor="let entry of (results | async)" (click)="deleteGame()">
+        <img src="{{entry.thumbnail}}"/>
+        <ion-card-title>{{entry.title}}</ion-card-title>
+        <ion-card-content>
+          <strong>Release Date: </strong>
+          {{entry.release_date}}
+          <br><br>
+
+          <strong>Developer: </strong>
+          {{entry.developer}}
+          <br><br>
+
+          <strong>Description: </strong>
+          {{entry.short_description}}
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <ion-buttons>
+        <ion-tab-button [routerLink]="['']">
+          <ion-icon name="search-outline"></ion-icon>
+          <ion-label>Search</ion-label>
+        </ion-tab-button>
+        <ion-tab-button [routerLink]="['/favourites']">
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-label>Favourites</ion-label>
+        </ion-tab-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

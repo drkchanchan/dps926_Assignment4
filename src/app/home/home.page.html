@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Game Search App
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,7 +14,53 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-list>
+      <ion-item>
+        <ion-label><strong>Game Platform: </strong></ion-label>
+        <ion-select [(ngModel)]="UIplatform" (ionChange)="platformChange($event)" placeholder="Select One" slot="end">
+          <ion-select-option [value]="pc">pc</ion-select-option>
+          <ion-select-option [value]="browser">browser</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label><strong>Category: </strong></ion-label>
+        <ion-select [(ngModel)]="UIcategory" (ionChange)="categoryChange($event)" placeholder="Select One" slot="end">
+          <ion-select-option [value]="action">action</ion-select-option>
+          <ion-select-option [value]="fantasy">fantasy</ion-select-option>
+          <ion-select-option [value]="shooter">shooter</ion-select-option>
+          <ion-select-option [value]="space">space</ion-select-option>
+          <ion-select-option [value]="sports">sports</ion-select-option>
+          <ion-select-option [value]="survival">survival</ion-select-option>
+        </ion-select>
+      </ion-item>      
+      <br>
+      <ion-item>
+        <ion-label><strong>Sort By: </strong></ion-label>
+        <ion-select [(ngModel)]="UIsort" (ionChange)="sortChange($event)" placeholder="Select One" slot="end">
+          <ion-select-option [value]="alphabetical">alphabetical</ion-select-option>
+          <ion-select-option [value]="popularity">popularity</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <br>
+      <br>
+      <ion-button (click)="onSearch()" [routerLink]="['/results']">Search for Games</ion-button>
+    </ion-list>
   </div>
+
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <ion-buttons>
+        <ion-tab-button [routerLink]="['']">
+          <ion-icon name="search-outline"></ion-icon>
+          <ion-label>Search</ion-label>
+        </ion-tab-button >
+        <ion-tab-button [routerLink]="['/favourites']">
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-label>Favourites</ion-label>
+        </ion-tab-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
